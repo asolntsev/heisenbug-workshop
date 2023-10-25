@@ -1,7 +1,5 @@
 package ru.heisenbug;
 
-import com.codeborne.selenide.Selenide;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -16,13 +14,8 @@ import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.Selenide.using;
 
 public class TwoBrowsersTest {
-  static {
-    WebDriverManager.chromedriver().setup();
-    WebDriverManager.firefoxdriver().setup();
-  }
-
-  private WebDriver admin = new ChromeDriver();
-  private WebDriver user = new FirefoxDriver();
+  private final WebDriver admin = new ChromeDriver();
+  private final WebDriver user = new FirefoxDriver();
 
   @Test
   void adminAndUser() {
